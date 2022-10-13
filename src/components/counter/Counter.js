@@ -7,8 +7,8 @@ import './Counter.css'
 
 const CounterButton = ({ increment, updateCount, shouldRun=true}) => {
     const displayText = 
-        increment < 0 ? '+' : 
-            increment > 0 ? '-' : 
+        increment > 0 ? '+' : 
+            increment < 0 ? '-' : 
             ' ';
 
     if (!shouldRun) {
@@ -20,7 +20,7 @@ const CounterButton = ({ increment, updateCount, shouldRun=true}) => {
 }   
 
 const Counter = () => {
-    const [count, setCount] = useState("0");
+    const [count, setCount] = useState(0);
     const updateCount = (increment) => {
         setCount(count => count + increment)
     }
@@ -32,7 +32,7 @@ const Counter = () => {
             <div className="counter-row">
                 <CounterButton increment={-1} updateCount={updateCount} />
                 <div className="counter-val">{count}</div>
-                <CounterButton increment={1} updateCount={updateCount} shouldRun={false}/>
+                <CounterButton increment={1} updateCount={updateCount} />
             </div>
 
         </div>
